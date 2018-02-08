@@ -1,0 +1,95 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jsMind</title>
+    <link type="text/css" rel="stylesheet" href="jsmind.css" />
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA-Bcw2RWSB5xjloRBRrYJDFv-yZa7x6Ro",
+        authDomain: "mymind-dab4.firebaseapp.com",
+        databaseURL: "https://mymind-dab4.firebaseio.com",
+        projectId: "mymind-dab4",
+        storageBucket: "",
+        messagingSenderId: "137433201966"
+      };
+      firebase.initializeApp(config);
+    </script>
+   <link type="text/css" rel="stylesheet" href="jsmind.css" />
+    <style type="text/css">
+        #jsmind_container{
+            width:800px;
+            height:500px;
+            border:solid 1px #ccc;
+            background:#f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+<div id="login_option">  
+    <form action="login.html">
+    <input type="submit" value="Sign in" />
+    </form>
+</div>
+<div id = "greeting">
+
+
+</div>
+<!-- JSmind -->
+<div id="jsmind_nav">
+    <ol>
+        <!-- <li><button onclick="new_graph();">start a new graph</button></li> -->
+        <li><button onclick="screen_shot();">screenshot</button></li>
+        <li><button onclick="add_node();">add a node</button></li>
+        <li><button onclick="remove_node();">remove node</button></li>
+        <li><button onclick="change_text_font();">change font</button></li>
+        <li><button onclick="change_text_color();">change color</button></li>
+        <li><button onclick="change_background_color();">change bg-color</button></li>
+        <li><button class="sub" onclick="get_nodearray_data();">show data</button></li>
+        <li>
+        <select onchange="set_theme(this.value);">
+            <option value="">default</option>
+            <option value="primary">primary</option>
+            <option value="warning">warning</option>
+            <option value="danger">danger</option>
+            <option value="success">success</option>
+            <option value="info">info</option>
+            <option value="greensea" selected="selected">greensea</option>
+            <option value="nephrite">nephrite</option>
+            <option value="belizehole">belizehole</option>
+            <option value="wisteria">wisteria</option>
+            <option value="asphalt">asphalt</option>
+            <option value="orange">orange</option>
+            <option value="pumpkin">pumpkin</option>
+            <option value="pomegranate">pomegranate</option>
+            <option value="clouds">clouds</option>
+            <option value="asbestos">asbestos</option>
+        </select>
+        </li>
+        <li><button class="sub" onclick="expand();">expand node</button></li>
+        <li><button class="sub" onclick="collapse();">collapse node</button></li>
+        <li><button class="sub" onclick="expand_all();">expand all</button></li>
+        <li><button class="sub" onclick="collapse_all();">collapse all</button></li>    
+        <li>zoom</li>
+            <button id="zoom-in-button" style="width:50px" onclick="zoomIn();">In</button>
+            <button id="zoom-out-button" style="width:50px" onclick="zoomOut();">Out</button>
+    </ol>
+</div>
+<div id="jsmind_container"></div>
+<script type="text/javascript" src="jsmind.js"></script>
+<script type="text/javascript" src="jsmind.draggable.js"></script>
+<script type="text/javascript" src="jsmind.screenshot.js"></script>
+<script type="text/javascript" src="indexApp.js"></script>
+<script type="text/javascript" src="graph.js"></script>
+
+</body>
+</html>

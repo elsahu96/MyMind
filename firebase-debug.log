@@ -1,0 +1,32 @@
+[debug] [2018-02-08T16:21:35.114Z] ----------------------------------------------------------------------
+[debug] [2018-02-08T16:21:35.116Z] Command:       /usr/local/Cellar/node/9.5.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-02-08T16:21:35.116Z] CLI Version:   3.17.4
+[debug] [2018-02-08T16:21:35.116Z] Platform:      darwin
+[debug] [2018-02-08T16:21:35.116Z] Node Version:  v9.5.0
+[debug] [2018-02-08T16:21:35.117Z] Time:          Thu Feb 08 2018 16:21:35 GMT+0000 (GMT)
+[debug] [2018-02-08T16:21:35.117Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-02-08T16:21:35.127Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-02-08T16:21:35.127Z] > authorizing via signed-in user
+[debug] [2018-02-08T16:21:35.130Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/mymind-dab4  
+  
+ Thu Feb 08 2018 16:21:35 GMT+0000 (GMT)
+[debug] [2018-02-08T16:21:36.058Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-08T16:21:36.058Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/mymind-dab4/tokens  
+  
+ Thu Feb 08 2018 16:21:36 GMT+0000 (GMT)
+[debug] [2018-02-08T16:21:36.637Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/elsahu/Desktop/MyMind'...
+[info] 
+[debug] [2018-02-08T16:21:36.640Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/mymind-dab4  
+  
+ Thu Feb 08 2018 16:21:36 GMT+0000 (GMT)
+[debug] [2018-02-08T16:21:37.374Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-08T16:21:37.375Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/137433201966/clients/_:getWebAppConfig  
+  
+ Thu Feb 08 2018 16:21:37 GMT+0000 (GMT)
+[debug] [2018-02-08T16:21:37.803Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+
