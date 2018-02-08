@@ -1,32 +1,41 @@
-[debug] [2018-02-08T16:21:35.114Z] ----------------------------------------------------------------------
-[debug] [2018-02-08T16:21:35.116Z] Command:       /usr/local/Cellar/node/9.5.0/bin/node /usr/local/bin/firebase serve
-[debug] [2018-02-08T16:21:35.116Z] CLI Version:   3.17.4
-[debug] [2018-02-08T16:21:35.116Z] Platform:      darwin
-[debug] [2018-02-08T16:21:35.116Z] Node Version:  v9.5.0
-[debug] [2018-02-08T16:21:35.117Z] Time:          Thu Feb 08 2018 16:21:35 GMT+0000 (GMT)
-[debug] [2018-02-08T16:21:35.117Z] ----------------------------------------------------------------------
+[debug] [2018-02-08T19:35:32.898Z] ----------------------------------------------------------------------
+[debug] [2018-02-08T19:35:32.900Z] Command:       /usr/local/Cellar/node/9.5.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-02-08T19:35:32.900Z] CLI Version:   3.17.4
+[debug] [2018-02-08T19:35:32.900Z] Platform:      darwin
+[debug] [2018-02-08T19:35:32.900Z] Node Version:  v9.5.0
+[debug] [2018-02-08T19:35:32.901Z] Time:          Thu Feb 08 2018 19:35:32 GMT+0000 (GMT)
+[debug] [2018-02-08T19:35:32.901Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-02-08T16:21:35.127Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-02-08T16:21:35.127Z] > authorizing via signed-in user
-[debug] [2018-02-08T16:21:35.130Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/mymind-dab4  
+[debug] [2018-02-08T19:35:32.910Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-02-08T19:35:32.910Z] > authorizing via signed-in user
+[debug] [2018-02-08T19:35:32.912Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-02-08T19:35:32.912Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/-er6HgC7NeYBPfC2zn_w9TXJM4qUgkgsY9BscolzOd4',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Feb 08 2018 19:35:32 GMT+0000 (GMT)
+[debug] [2018-02-08T19:35:33.064Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-08T19:35:33.071Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/mymind-dab4  
   
- Thu Feb 08 2018 16:21:35 GMT+0000 (GMT)
-[debug] [2018-02-08T16:21:36.058Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T16:21:36.058Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/mymind-dab4/tokens  
+ Thu Feb 08 2018 19:35:33 GMT+0000 (GMT)
+[debug] [2018-02-08T19:35:33.686Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-08T19:35:33.687Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/mymind-dab4/tokens  
   
- Thu Feb 08 2018 16:21:36 GMT+0000 (GMT)
-[debug] [2018-02-08T16:21:36.637Z] <<< HTTP RESPONSE 200
+ Thu Feb 08 2018 19:35:33 GMT+0000 (GMT)
+[debug] [2018-02-08T19:35:34.206Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/elsahu/Desktop/MyMind'...
 [info] 
-[debug] [2018-02-08T16:21:36.640Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/mymind-dab4  
+[debug] [2018-02-08T19:35:34.209Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/mymind-dab4  
   
- Thu Feb 08 2018 16:21:36 GMT+0000 (GMT)
-[debug] [2018-02-08T16:21:37.374Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T16:21:37.375Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/137433201966/clients/_:getWebAppConfig  
+ Thu Feb 08 2018 19:35:34 GMT+0000 (GMT)
+[debug] [2018-02-08T19:35:34.931Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-08T19:35:34.931Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/137433201966/clients/_:getWebAppConfig  
   
- Thu Feb 08 2018 16:21:37 GMT+0000 (GMT)
-[debug] [2018-02-08T16:21:37.803Z] <<< HTTP RESPONSE 200
+ Thu Feb 08 2018 19:35:34 GMT+0000 (GMT)
+[debug] [2018-02-08T19:35:35.395Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
 
