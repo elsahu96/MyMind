@@ -1,10 +1,9 @@
 body {
-	background-color: #d8f7ff;
-	font-size: 16px;
-	font-family: 'Lato', sans-serif;
-	font-weight: 300;
-	margin: 0;
-	color: white;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    color: white;
 }
 
 /* Typography */
@@ -82,7 +81,6 @@ p.small {
 	border: 1px solid #ccc;
 	border-radius: 2px;
 	font-size: .9em;
-	color: white;
 }
 
 .login-box input:focus {
@@ -102,7 +100,6 @@ p.small {
 	font-weight: 400;
 	font-size: 0.7em;
 	letter-spacing: 1px;
-	background-color: #76cae0;;
 	cursor:pointer;
 	outline: none;
 }
@@ -113,7 +110,6 @@ p.small {
 }
 
 
-
 .selected {
 	color: #665851!important;
 	transition: 0.5s;
@@ -121,8 +117,8 @@ p.small {
 
 /* Animation Delay */
 #logo {
-  -webkit-animation-duration: 1s;
-  -webkit-animation-delay: 2s;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay: 2s;
 }
 
 .login-box {
@@ -134,9 +130,7 @@ p.small {
   height: 5px;
   border-top: 0;
   background: #c4e17f;
-  border-radius: 10px;
-  
-
+  border-radius: 10px; 
   background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
   background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
   background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
