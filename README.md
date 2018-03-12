@@ -1,1 +1,1 @@
-MyMind is my final year project which provides a web tool for group users to generate mind maps collaboratively.
+MyMind is a mind mapping production website for group users.
