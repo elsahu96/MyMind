@@ -1,32 +1,32 @@
-[debug] [2018-03-12T21:25:55.898Z] ----------------------------------------------------------------------
-[debug] [2018-03-12T21:25:55.900Z] Command:       /usr/local/Cellar/node/9.5.0/bin/node /usr/local/bin/firebase serve
-[debug] [2018-03-12T21:25:55.900Z] CLI Version:   3.17.4
-[debug] [2018-03-12T21:25:55.900Z] Platform:      darwin
-[debug] [2018-03-12T21:25:55.900Z] Node Version:  v9.5.0
-[debug] [2018-03-12T21:25:55.900Z] Time:          Mon Mar 12 2018 21:25:55 GMT+0000 (GMT)
-[debug] [2018-03-12T21:25:55.900Z] ----------------------------------------------------------------------
+[debug] [2018-03-13T21:51:39.222Z] ----------------------------------------------------------------------
+[debug] [2018-03-13T21:51:39.225Z] Command:       /usr/local/Cellar/node/9.5.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-03-13T21:51:39.225Z] CLI Version:   3.17.6
+[debug] [2018-03-13T21:51:39.225Z] Platform:      darwin
+[debug] [2018-03-13T21:51:39.225Z] Node Version:  v9.5.0
+[debug] [2018-03-13T21:51:39.225Z] Time:          Tue Mar 13 2018 21:51:39 GMT+0000 (GMT)
+[debug] [2018-03-13T21:51:39.225Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-03-12T21:25:55.913Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-03-12T21:25:55.914Z] > authorizing via signed-in user
-[debug] [2018-03-12T21:25:55.916Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/mymind-dab4  
+[debug] [2018-03-13T21:51:39.238Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-13T21:51:39.238Z] > authorizing via signed-in user
+[debug] [2018-03-13T21:51:39.239Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/mymind-dab4  
   
- Mon Mar 12 2018 21:25:55 GMT+0000 (GMT)
-[debug] [2018-03-12T21:25:56.560Z] <<< HTTP RESPONSE 200
-[debug] [2018-03-12T21:25:56.561Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/mymind-dab4/tokens  
+ Tue Mar 13 2018 21:51:39 GMT+0000 (GMT)
+[debug] [2018-03-13T21:51:39.968Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-13T21:51:39.969Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/mymind-dab4/tokens  
   
- Mon Mar 12 2018 21:25:56 GMT+0000 (GMT)
-[debug] [2018-03-12T21:25:57.150Z] <<< HTTP RESPONSE 200
+ Tue Mar 13 2018 21:51:39 GMT+0000 (GMT)
+[debug] [2018-03-13T21:51:40.592Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-13T21:51:40.593Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/mymind-dab4  
+  
+ Tue Mar 13 2018 21:51:40 GMT+0000 (GMT)
+[debug] [2018-03-13T21:51:41.231Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/elsahu/Desktop/MyMind'...
 [info] 
-[debug] [2018-03-12T21:25:57.153Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/mymind-dab4  
+[debug] [2018-03-13T21:51:41.233Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/137433201966/clients/_:getWebAppConfig  
   
- Mon Mar 12 2018 21:25:57 GMT+0000 (GMT)
-[debug] [2018-03-12T21:25:57.754Z] <<< HTTP RESPONSE 200
-[debug] [2018-03-12T21:25:57.754Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/137433201966/clients/_:getWebAppConfig  
-  
- Mon Mar 12 2018 21:25:57 GMT+0000 (GMT)
-[debug] [2018-03-12T21:25:58.155Z] <<< HTTP RESPONSE 200
+ Tue Mar 13 2018 21:51:41 GMT+0000 (GMT)
+[debug] [2018-03-13T21:51:41.631Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
 

@@ -2,6 +2,7 @@ body{
 	font-family: 'Montserrat', sans-serif;
 }
 
+
 li{
 	display: inline;
 }
@@ -31,8 +32,49 @@ li{
 
 button{
 	/*background-color: white;*/
+  
 }
 .auth{
 	display: inline-block;
-	margin-left: 150px;
+	margin-left: 50px;
 }
+
+/*login*/
+body {
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    color: white;
+}
+
+/* Typography */
+
+h2 {
+	text-transform: uppercase;
+	color: white;
+	font-weight: 400;
+	letter-spacing: 1px;
+	font-size: 1.4em;
+	line-height: 2.8em;
+	background-color: #a7e3f9;
+}
+
+a {
+	text-decoration: none;
+	color: #3c544f;
+}
+
+a:hover {
+	color: #aeaeae;
+}
+
+p.small {
+	font-size: 0.8em;
+	margin: 20px 0 0;
+}
+
+/* Layout */
+
+
+/*login*/

@@ -39,7 +39,6 @@ function screen_shot(){
     _jm.screenshot.shootDownload();
 }
 
-
 function add_node(){
     var selected_node = _jm.get_selected_node(); // as parent of new node
     if(!selected_node){prompt_info('please select a node first.');return;}
@@ -173,17 +172,19 @@ function updataDatabase(){
     var mind_data = _jm.get_data('node_array');
     firebase.database().ref("test").child("graph").set(mind_data);
         console.log("data updated!");   
-}
-
+};
 
 //check user status 
 firebase.auth().onAuthStateChanged(firebaseUser =>{
       if(firebaseUser){
-        console.log(firebaseUer);
+        //user is logged in
+        document.getElementById("login").style.display = "none";
+        document.getElementById("display-user").innerHTML=firebaseUser.displayName;
       }else{
+        //user fails logging in
         console.log("not logged in");
       }
-    })
+});
 
 
 //database object

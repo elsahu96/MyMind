@@ -1,23 +1,23 @@
-<!Doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en" >
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>My mind</title>
-    <link type="text/css" rel="stylesheet" href="jsmind.css" />
-    <link type="text/css" rel="stylesheet" href="index.css" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- icon library -->
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
+  <meta charset="UTF-8">
+  
+  <title>Sign in to start building your mind map!</title>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'> -->
+  <!-- <link rel="stylesheet" href="animate.css"> -->
+  <!-- Custom Stylesheet -->
+  
+  <link type="text/css" rel="stylesheet" href="/login.css" />
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-messaging.js"></script>
+
+  <script>
       // Initialize Firebase
       var config = {
         apiKey: "AIzaSyA-Bcw2RWSB5xjloRBRrYJDFv-yZa7x6Ro",
@@ -28,137 +28,163 @@
         messagingSenderId: "137433201966"
       };
       firebase.initializeApp(config);
-      window.onbeforeunload = function() {
-        return 'Did you save your graph? Are you sure you want to leave?';
-      }
     </script>
-   <link type="text/css" rel="stylesheet" href="jsmind.css" />
-    <style type="text/css">
-        #jsmind_container{
-            margin-left: auto;
-            margin-right: auto;
-            /*width:1400px;*/
-            width:90%;
-            /*height:200%;*/
-            height:700px;
-            border:solid 1px #ccc;
-            background:#f4f4f4;
-        }
-    </style>
+
 </head>
 
 <body>
+ 
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: 'main.html',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+          // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+          // firebase.auth.EmailAuthProvider.PROVIDER_ID,
+          // firebase.auth.PhoneAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+      };
 
-<!-- JSmind -->
-<hr class="colorgraph">
-<div id="jsmind_nav">
-    <nav class = "top-bar">
-        <ul>     
-            <li><button onclick="add_node();" class="btn" ><i class="material-icons">add_circle_outline</i></button></li>
-            
-            <li><button onclick="remove_node();" class="btn" ><i class="material-icons">delete</i></button></li>
-            <li><button onclick="screen_shot();" class="btn" ><i class="material-icons">camera_alt</i></button></li>
-            <li></li>
-                <button id="zoom-in-button" style="width:50px" onclick="zoomIn();" class="btn" style="background-color:white;"><i class="material-icons">zoom_in</i></button>
-                <button id="zoom-out-button" style="width:50px" onclick="zoomOut();" class="btn" style="background-color:white;"><i class="material-icons">zoom_out</i></button>
-            
-             
-            <li><button class="btn" onclick="expand_all();" >expand all</button></li>
-            <li><button class="btn" onclick="collapse_all();" >collapse all</button></li>   
-            
-            <div class="btn-group">
-            <li>  
+      // Initialize the FirebaseUI Widget using Firebase.
+      var auth = firebase.auth();
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
 
-                <select onchange="change_text_font(this.value);">
-                <option value=""> Change font</option>
-                <option value="16">16</option>
-                <option value="18">18</option>
-                <option value="20">20</option>
-                <option value="22">22</option>
-                <option value="24">24</option>
-                <option value="26">26</option>
-                <option value="28">28</option>
-                <option value="30">30</option>
-                <option value="32">32</option>
-            </select>
+    function toggleSignIn(){
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code; 
+        var errorMessage = error.message;
+        console.log(errorMessage);
+        // ...
+        });
+    }
+    
+    function toggleSignIn() {
+      if (firebase.auth().currentUser) {
+        // [START signout]
+        firebase.auth().signOut();
+        // [END signout]
+      } else {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        if (email.length < 4) {
+          alert('Please enter an email address.');
+          return;
+        }
+        if (password.length < 4) {
+          alert('Please enter a password.');
+          return;
+        }
+        // Sign in with email and pass.
+        // [START authwithemail]
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // [START_EXCLUDE]
+          if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+          } else {
+            alert(errorMessage);
+          }
+          console.log(error);        
+          // [END_EXCLUDE]
+        });
+        // [END authwithemail]
+      }
+    }
+
+    auth.onAuthStateChanged(firebaseUser =>{
+      if(firebaseUser){
+        console.log(firebaseUser);
+      }else{
+        console.log("not logged in");
+      }
+    })
+
+
+    function sendPasswordReset() {
+      var email = document.getElementById('email').value;
+      // [START sendpasswordemail]
+      firebase.auth().sendPasswordResetEmail(email).then(function() {
+        // Password Reset Email Sent!
+        // [START_EXCLUDE]
+        alert('Password Reset Email Sent!');
+        // [END_EXCLUDE]
+      }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode == 'auth/invalid-email') {
+          alert(errorMessage);
+        } else if (errorCode == 'auth/user-not-found') {
+          alert(errorMessage);
+        }
+        console.log(error);
+        // [END_EXCLUDE]
+      });
+      // [END sendpasswordemail];
+    }
+
+    
+    </script>
+
+<div id = "website-container"">
+  <!-- <p>Sign in to build your mind map with your buddies!</p> -->
+  <hr class="colorgraph">
+  <div class="container">
+      <div class="top">
+        <!-- <h1 id="title" class="hidden"><span id="logo">Welcome to <span>MyMind</span></span></h1> -->
+      </div>
+      <div class="login-box animated fadeInUp">
         
-            </li>
-            <li>            
-                <select onchange="change_text_color(this.value);">
-                    <option >Change color</option>
-                    <option value="#000000" style="background-color:#000000;">Black</option>
-                    <option value="#ffffff" style="background:#ffffff;">White</option>
-                </select>
-            </li>
+        <div class="box-header">
+          <h2>Log In</h2>
+        </div>         
+            <label for="username" ">Email</label>
+            <br/>
+            <input type="text" id="email">
+            <br/>         
+          <label for="password">Password</label>
+          <br/>
+          <input type="password" id="password">
+          <br/>
+          <button type="submit" onclick="toggleSignIn()">Sign In</button>
 
-            <li>
-                
-                <select onchange="change_background_color(this.value);">
-                <option>Background</option>
-                <option value="#f9a9a9" style="background:#f9a9a9;">Red</option>
-                <option value="#efef7a" style="background:#efef7a;">Banana</option>
-                <option value="#e29df2" style="background:#e29df2;">Grape</option>
-                <option value="#9cd5f1" style="background:#9cd5f1;">Blue</option>
-                <option value="#ecabf2" style="background:#ecabf2;">Pink</option>
-            </select>            
-            </li>            
-            <li>
-            <select onchange="set_theme(this.value);">
-                <option >Theme</option>
-                <option value="primary">primary</option>
-                <option value="warning">warning</option>
-                <option value="danger">danger</option>
-                <option value="success">success</option>
-                <option value="info">info</option>
-                <option value="greensea" >greensea</option>
-                <option value="nephrite">nephrite</option>
-                <option value="belizehole">belizehole</option>
-                <option value="wisteria">wisteria</option>
-                <option value="asphalt">asphalt</option>
-                <option value="orange">orange</option>
-                <option value="pumpkin">pumpkin</option>
-                <option value="pomegranate">pomegranate</option>
-                <option value="clouds">clouds</option>
-                <option value="asbestos">asbestos</option>
-            </select>
-            </li>
-            
-            
+        <br/>
+        <div id="firebaseui-auth-container"></div>
+        
+        <div style="float:top; ">
+          <a href="signup.html" float:left;dispaly:block><p class="small">Register</p></a>
         </div>
-        <nav class="auth">
-
-            <button class="btn btn-action" ><a href="login.html">Login</a></button>
-            <button class="btn" >Sign up</button>
-            <button class="btn btn-action hide" >Logout</button>
-        </nav>
-        <span class="help"><a href="#">Need Help?</a></span>         
-        </ul>
-
-    </nav>
-
-</div>
-<hr class="colorgraph">
-<div id="jsmind_container"></div>
-<div style="display:none">
-      <input class="file" type="file" id="image-chooser" accept="image/*"/>
-</div>
-<div class="footer" style="
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: #afadad;
-    text-align: center;">
-    <p>Auther: Yachen Hu
-     <a href="mailto:y.hu@se15.qmul.ac.uk">
-    y.hu@se15.qmul.ac.uk</a></p>
+        
+        <div style="float:top; ">
+        <a href="#" id="quickstart-password-reset" onclick="sendPasswordReset()"><p class="small">Forgot password?</p></a>
+        </div>
+        
+      </div>
     
-    
-</div>
+      
+    </div>
 
-<script type="text/javascript" src="jsmind.js"></script>
-<script type="text/javascript" src="jsmind.draggable.js"></script>
-<script type="text/javascript" src="jsmind.screenshot.js"></script>
-<script type="text/javascript" src="graph.js"></script>
+  <!-- firebase login -->
+    
+  
+</div>
+  
 </body>
+
 </html>
