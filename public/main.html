@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>My mind</title>
+    <title>Group Work Space</title>
     <link type="text/css" rel="stylesheet" href="jsmind.css" />
     <link type="text/css" rel="stylesheet" href="index.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -49,93 +49,88 @@
 
 <body>
 
-<!-- JSmind -->
 <div id="user_div" class="loggedin-div">
     <hr class="colorgraph">
-    <div id="jsmind_nav">
-        <nav class = "top-bar">
-            <ul>     
-                <li><button onclick="add_node();" class="btn" ><i class="material-icons">add_circle_outline</i></button></li>
-                
-                <li><button onclick="remove_node();" class="btn" ><i class="material-icons">delete</i></button></li>
-                <li><button onclick="screen_shot();" class="btn" ><i class="material-icons">camera_alt</i></button></li>
-                <li></li>
-                    <button id="zoom-in-button" style="width:50px" onclick="zoomIn();" class="btn" style="background-color:white;"><i class="material-icons">zoom_in</i></button>
-                    <button id="zoom-out-button" style="width:50px" onclick="zoomOut();" class="btn" style="background-color:white;"><i class="material-icons">zoom_out</i></button>
-                                 
-                <li><button class="btn" onclick="expand_all();" >expand all</button></li>
-                <li><button class="btn" onclick="collapse_all();" >collapse all</button></li>   
-                
-                <div class="btn-group">
-                <li>  
-
-                    <select onchange="change_text_font(this.value);">
-                    
-                    <option value="16">16</option>
-                    <option value="18">18</option>
-                    <option value="20">20</option>
-                    <option value="22">22</option>
-                    <option value="24">24</option>
-                    <option value="26">26</option>
-                    <option value="28">28</option>
-                    <option value="30">30</option>
-                    <option value="32">32</option>
-                    <option value=""> Change font</option>
-                </select>
-            
-                </li>
-                <li>            
-                    <select onchange="change_text_color(this.value);">
-                        
-                        <option value="#000000" style="background-color:#000000;">Black</option>
-                        <option value="#ffffff" style="background:#ffffff;">White</option>
-                        <option >Change text colour</option>
+        <div id="jsmind_nav">
+            <nav class = "top-bar">
+                <ul>     
+                    <li><button onclick="add_node();" class="btn" ><i class="material-icons">add_circle_outline</i></button></li>
+                    <li><button onclick="remove_node();" class="btn" ><i class="material-icons">delete</i></button></li>
+                    <li><button onclick="screen_shot();" class="btn" ><i class="material-icons">camera_alt</i></button></li>
+                    <li></li>
+                        <button id="zoom-in-button" style="width:50px" onclick="zoomIn();" class="btn" style="background-color:white;"><i class="material-icons">zoom_in</i></button>
+                        <button id="zoom-out-button" style="width:50px" onclick="zoomOut();" class="btn" style="background-color:white;"><i class="material-icons">zoom_out</i></button>
+                                     
+                    <li><button class="btn" onclick="expand_all();" >expand all</button></li>
+                    <li><button class="btn" onclick="collapse_all();" >collapse all</button></li>   
+                    <div class="btn-group">
+                    <li>  
+                        <select onchange="change_text_font(this.value);">
+                        <option value="16">16</option>
+                        <option value="18">18</option>
+                        <option value="20">20</option>
+                        <option value="22">22</option>
+                        <option value="24">24</option>
+                        <option value="26">26</option>
+                        <option value="28">28</option>
+                        <option value="30">30</option>
+                        <option value="32">32</option>
+                        <option value=""> Change font</option>
                     </select>
-                </li>
-            
-                <li>
-                    
-                    <select onchange="change_background_color(this.value);">
-                    
-                    <option value="#f9a9a9" style="background:#f9a9a9;">Red</option>
-                    <option value="#efef7a" style="background:#efef7a;">Banana</option>
-                    <option value="#e29df2" style="background:#e29df2;">Grape</option>
-                    <option value="#9cd5f1" style="background:#9cd5f1;">Blue</option>
-                    <option value="#ecabf2" style="background:#ecabf2;">Pink</option>
-                    <option>Background</option>
-                </select>            
-                </li>            
-                <li>
-                <select onchange="set_theme(this.value);">
-                    <option >Theme</option>
-                    <option value="primary">primary</option>
-                    <option value="warning">warning</option>
-                    <option value="danger">danger</option>
-                    <option value="success">success</option>
-                    <option value="info">info</option>
-                    <option value="greensea" >greensea</option>
-                    <option value="nephrite">nephrite</option>
-                    <option value="belizehole">belizehole</option>
-                    <option value="wisteria">wisteria</option>
-                    <option value="asphalt">asphalt</option>
-                    <option value="orange">orange</option>
-                    <option value="pumpkin">pumpkin</option>
-                    <option value="pomegranate">pomegranate</option>
-                    <option value="clouds">clouds</option>
-                    <option value="asbestos">asbestos</option>
-                </select>
-                </li>
-            </div>
-            <nav class="auth">
-                <button id="login" ><a href="login.html">Login</a></button>
-                Welcome: <span id="display-user"> </span>
-                <button id="logout" >Logout</button>
+                
+                    </li>
+                    <li>            
+                        <select onchange="change_text_color(this.value);">
+                            
+                            <option value="#000000" style="background-color:#000000;">Black</option>
+                            <option value="#ffffff" style="background:#ffffff;">White</option>
+                            <option >Change text colour</option>
+                        </select>
+                    </li>
+                
+                    <li>
+                        
+                        <select onchange="change_background_color(this.value);">
+                        <option value="#f9a9a9" style="background:#f9a9a9;">Red</option>
+                        <option value="#efef7a" style="background:#efef7a;">Banana</option>
+                        <option value="#e29df2" style="background:#e29df2;">Grape</option>
+                        <option value="#9cd5f1" style="background:#9cd5f1;">Blue</option>
+                        <option value="#ecabf2" style="background:#ecabf2;">Pink</option>
+                        <option>Background</option>
+                    </select>            
+                    </li>            
+                    <li>
+                    <select onchange="set_theme(this.value);">
+                        <option >Theme</option>
+                        <option value="primary">primary</option>
+                        <option value="warning">warning</option>
+                        <option value="danger">danger</option>
+                        <option value="success">success</option>
+                        <option value="info">info</option>
+                        <option value="greensea" >greensea</option>
+                        <option value="nephrite">nephrite</option>
+                        <option value="belizehole">belizehole</option>
+                        <option value="wisteria">wisteria</option>
+                        <option value="asphalt">asphalt</option>
+                        <option value="orange">orange</option>
+                        <option value="pumpkin">pumpkin</option>
+                        <option value="pomegranate">pomegranate</option>
+                        <option value="clouds">clouds</option>
+                        <option value="asbestos">asbestos</option>
+                    </select>
+                    </li>
+                </div>
+                <nav class="auth">
+                    <button id="login" ><a href="index.html">Login</a></button>
+                    <span id="logout" onclick="signout()">Welcome: <span id="display-user"> </span>
+                    <button id="logoutBtn" >Logout</button></span>
+                </nav>
+                <span class="help"><a href="help.html">Need Help?</a></span>         
+                </ul>
             </nav>
-            <span class="help"><a href="help.html">Need Help?</a></span>         
-            </ul>
-        </nav>
 
-    </div>
+        </div>
+
     <hr class="colorgraph">
     <div id="jsmind_container"></div>
 
@@ -163,5 +158,6 @@
 <script type="text/javascript" src="jsmind.draggable.js"></script>
 <script type="text/javascript" src="jsmind.screenshot.js"></script>
 <script type="text/javascript" src="graph.js"></script>
+<script type="text/javascript" src="index.js"></script>
 </body>
 </html>

@@ -23,11 +23,11 @@ var options = {
 
 function hotkey()
 {
-var key = window.event.keyCode;
-if(key == 9){updataDatabase()}
-if(key == 13){updataDatabase()}
-if(key == 32){updataDatabase()}
-if(key == 8){updataDatabase()}
+    var key = window.event.keyCode;
+    if(key == 9){updataDatabase()}
+    if(key == 13){updataDatabase()}
+    if(key == 32){updataDatabase()}
+    if(key == 8){updataDatabase()}
 }
 document.onkeydown = hotkey; 
 
@@ -83,9 +83,6 @@ function add_image(){
     imageChooser.click();
   }
 
-function myFunction() {
-    console.log("clicked");
-}
 
 function remove_node(){
     var selected_id = get_selected_nodeid();
@@ -167,38 +164,8 @@ function zoomOut() {
     };
 };
 
-//update database new changes to firebase
-function updataDatabase(){
-    var mind_data = _jm.get_data('node_array');
-    firebase.database().ref("test").child("graph").set(mind_data);
-        console.log("data updated!");   
-};
-
-//check user status 
-firebase.auth().onAuthStateChanged(firebaseUser =>{
-      if(firebaseUser){
-        //user is logged in
-        document.getElementById("login").style.display = "none";
-        document.getElementById("display-user").innerHTML=firebaseUser.displayName;
-      }else{
-        //user fails logging in
-        console.log("not logged in");
-      }
-});
 
 
-//database object
-var dbRefObj = firebase.database().ref("test/graph");
-//retrive data from firebase
-dbRefObj.once('value').then(function(snapshot) {
-    console.log(snapshot.val());
-    var data = JSON.stringify(snapshot.val());
-    open_json(snapshot.val());
-}) ;
-//put listener on database object
-dbRefObj.on('value', function(snapshot) {
-    _jm.show(snapshot.val());
-});
  
 
 
