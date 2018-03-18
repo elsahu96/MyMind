@@ -58,42 +58,52 @@
       ui.start('#firebaseui-auth-container', uiConfig);
 
     function toggleSignIn(){
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code; 
-          var errorMessage = error.message;
-          console.log(errorMessage);
-        });
+      window.alert("You will not be able to save your work when you are signed in as an anonymous user.");
+      firebase.auth().signInAnonymously().catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+      });
+
+
+
+        // var email = document.getElementById('email').value;
+        // var password = document.getElementById('password').value;
+        // firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        //   // Handle Errors here.
+        //   var errorCode = error.code; 
+        //   var errorMessage = error.message;
+        //   console.log(errorMessage);
+        // });
        
-        if (email.length < 4) {
-          alert('Please enter the correct email address/username.');
-          return;
-        }
-        if (password.length < 4) {
-          alert('Please enter your password.');
-          return;
-        }
-        // Sign in with email and pass.
-        // [START authwithemail]
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // [START_EXCLUDE]
-          if (errorCode === 'auth/wrong-password') {
-            alert('Wrong password.');
-          } else {
-            alert(errorMessage);
-          }
-          console.log(error);        
-          // [END_EXCLUDE]
-        });
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-          console.log(error);
-        });
-        // [END authwithemail]
+        // if (email.length < 4) {
+        //   alert('Please enter the correct email address/username.');
+        //   return;
+        // }
+        // if (password.length < 4) {
+        //   alert('Please enter your password.');
+        //   return;
+        // }
+        // // Sign in with email and pass.
+        // // [START authwithemail]
+        // firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        //   // Handle Errors here.
+        //   var errorCode = error.code;
+        //   var errorMessage = error.message;
+        //   // [START_EXCLUDE]
+        //   if (errorCode === 'auth/wrong-password') {
+        //     alert('Wrong password.');
+        //   } else {
+        //     alert(errorMessage);
+        //   }
+        //   console.log(error);        
+        //   // [END_EXCLUDE]
+        // });
+        // firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        //   console.log(error);
+        // });
+        // // [END authwithemail]
 
     }
     
@@ -140,7 +150,9 @@
         console.log("You are not logged in yet");
         // console.log(firebaseUser);
       }else{
+
         console.log("Log in");
+        window.location.href = "main.html";
         // window.setTimeout('window.open("main.html","newsite")',3000);
         
       }
@@ -186,14 +198,9 @@
 
       </h2>
       <div class="login-box animated fadeInUp">
-        
-                
-          <input type="text" placeholder="Group username" id="email">
-          <input type="password" placeholder="Enter password" id="password">
-          <button type="submit" onclick="toggleSignIn()">Sign in</button>
+          <button type="submit" onclick="toggleSignIn()">Sign In Anonymously</button>
         <br/>
         <div id="firebaseui-auth-container"></div>
-        
         <div style="float:top; ">
           <a href="signup.html" float:left;dispaly:block><p class="small">Don't have an account? Register here.</p></a>
         </div>

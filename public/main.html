@@ -7,7 +7,7 @@
     <link type="text/css" rel="stylesheet" href="jsmind.css" />
     <link type="text/css" rel="stylesheet" href="index.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- icon library -->
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
@@ -37,9 +37,7 @@
         #jsmind_container{
             margin-left: auto;
             margin-right: auto;
-            /*width:1400px;*/
             width:90%;
-            /*height:200%;*/
             height:700px;
             border:solid 1px #ccc;
             background:#f4f4f4;
@@ -51,21 +49,42 @@
 
 <div id="user_div" class="loggedin-div">
     <hr class="colorgraph">
-        <div id="jsmind_nav">
-            <nav class = "top-bar">
-                <ul>     
-                    <li><button onclick="add_node();" class="btn" ><i class="material-icons">add_circle_outline</i></button></li>
-                    <li><button onclick="remove_node();" class="btn" ><i class="material-icons">delete</i></button></li>
-                    <li><button onclick="screen_shot();" class="btn" ><i class="material-icons">camera_alt</i></button></li>
+
+                <!-- test --> 
+                  <button id="toolbar" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-left: 50px;">Toolbar</button>
+                    <button id="toolbar" class="btn btn-primary" type="button" onclick="updataDatabaseBtn()" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-left: 50px;" >Save</button>
+                <nav class="auth"> 
+                    <button id="login" class="btn btn-info" onclick="signout()">Login</button>
+                    <div id="user-container" style="display:  -webkit-inline-box;">
+                        <!-- user profile picture : when user==true;display-->
+                         <div id="user-pic" style="width: 40px; height: 40px; background-size: 40px; border-radius: 20px; display: inherit; background-image: url(&quot;https://lh4.googleusercontent.com/-9vCh9X2OK-0/AAAAAAAAAAI/AAAAAAAAAdk/mIHbt1ArLEI/photo.jpg&quot;);"></div>    
+                         <!-- user username : when user==true;display-->
+                         <span id="display-user"></span>
+                     </div>
+                    <!-- logout button: when user==true;display -->
+                    <!-- <button id="logout" class="btn btn-danger" onclick="signout()">Logout</button> -->
+
+                    <button id="logout" class="btn btn-danger" onclick="signout()" style="margin-bottom: 30px; margin-right: 50px">Logout</button>
+                </nav>
+                <span class="help"><a href="help.html">Need Help?</a></span>
+                
+                <div class="collapse" id="collapseExample">
+                  <div class="card card-body">
+                    <!-- toolbar -->
+                   
+                   <ul>     
+                    <li><button type="button" onclick="add_node();" class="btn btn-outline-info btn-sm" ><i class="material-icons">add_circle_outline</i></button></li>
+                    <li><button onclick="remove_node();" class="btn btn-outline-info btn-sm" ><i class="material-icons">delete</i></button></li>
+                    <li><button onclick="screen_shot();" class="btn btn-outline-info btn-sm" ><i class="material-icons">camera_alt</i></button></li>
                     <li></li>
-                        <button id="zoom-in-button" style="width:50px" onclick="zoomIn();" class="btn" style="background-color:white;"><i class="material-icons">zoom_in</i></button>
-                        <button id="zoom-out-button" style="width:50px" onclick="zoomOut();" class="btn" style="background-color:white;"><i class="material-icons">zoom_out</i></button>
+                        <button id="zoom-in-button" style="width:50px" onclick="zoomIn();" class="btn btn-outline-info btn-sm" style="background-color:white;"><i class="material-icons">zoom_in</i></button>
+                        <button id="zoom-out-button" style="width:50px" onclick="zoomOut();" class="btn btn-outline-info btn-sm" style="background-color:white;"><i class="material-icons">zoom_out</i></button>
                                      
-                    <li><button class="btn" onclick="expand_all();" >expand all</button></li>
-                    <li><button class="btn" onclick="collapse_all();" >collapse all</button></li>   
-                    <div class="btn-group">
+                    <li><button class="btn btn-outline-info" onclick="expand_all();" >expand all</button></li>
+                    <li><button class="btn btn-outline-info" onclick="collapse_all();" >collapse all</button></li>   
+                    
                     <li>  
-                        <select onchange="change_text_font(this.value);">
+                        <select class="selectpicker" data-style="btn-danger"  onchange="change_text_font(this.value);">
                         <option value="16">16</option>
                         <option value="18">18</option>
                         <option value="20">20</option>
@@ -120,20 +139,12 @@
                     </select>
                     </li>
                 </div>
-                <nav class="auth">
-                    <button id="login" ><a href="index.html">Login</a></button>
-                    <span id="logout" onclick="signout()">Welcome: <span id="display-user"> </span>
-                    <button id="logoutBtn" >Logout</button></span>
-                </nav>
-                <span class="help"><a href="help.html">Need Help?</a></span>         
+                         
                 </ul>
-            </nav>
-
-        </div>
-
-    <hr class="colorgraph">
+                  </div>
+                </div>
+<br>
     <div id="jsmind_container"></div>
-
     <div style="display:none">
           <input class="file" type="file" id="image-chooser" accept="image/*"/>
     </div>
@@ -141,7 +152,7 @@
 
 
 <div class="footer" style="
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -159,5 +170,8 @@
 <script type="text/javascript" src="jsmind.screenshot.js"></script>
 <script type="text/javascript" src="graph.js"></script>
 <script type="text/javascript" src="index.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

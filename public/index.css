@@ -1,18 +1,16 @@
 body{
 	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    color: white;
 }
 
-
-li{
-	display: inline;
-}
-#jsmind_nav{
+#toolbar{
 	
-	margin-left: auto；
-	margin-right: auto;
+	margin-left: 100px;
 }
-
-
 
 .colorgraph {
   height: 5px;
@@ -29,35 +27,12 @@ li{
 	display: inline-block;
 }
 
-button{
-	/*background-color: white;*/
-  
-}
+
 .auth{
 	display: inline-block;
-	margin-left: 50px;
+	float: right;
 }
 
-/*login*/
-body {
-    font-size: 16px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    margin: 0;
-    color: white;
-}
-
-/* Typography */
-
-h2 {
-	text-transform: uppercase;
-	color: white;
-	font-weight: 400;
-	letter-spacing: 1px;
-	font-size: 1.4em;
-	line-height: 2.8em;
-	background-color: #a7e3f9;
-}
 
 a {
 	text-decoration: none;
@@ -73,7 +48,3 @@ p.small {
 	margin: 20px 0 0;
 }
 
-/* Layout */
-
-
-/*login*/

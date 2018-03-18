@@ -7,14 +7,27 @@ function updataDatabase(){
     firebase.database().ref(displayName).child("graph").set(mind_data);
         console.log("data updated!");   
 };
+function updataDatabaseBtn(){
+    var user = firebase.auth().currentUser;
+    var displayName = user.displayName;
+    var mind_data = _jm.get_data('node_array');
+    firebase.database().ref(displayName).child("graph").set(mind_data);
+        window.alert("You just saved your mind map!");   
+};
 
 //check user status 
 firebase.auth().onAuthStateChanged(firebaseUser =>{
       if(firebaseUser){
         //user is logged in
+        
         document.getElementById("login").style.display = "none";
         document.getElementById("display-user").innerHTML=firebaseUser.displayName;
-        //database object
+        //get user's profile
+        var userPic = document.getElementById('user-pic');
+        var profilePicUrl = firebaseUser.photoURL;
+        userPic.style.backgroundImage = 'url(' + (profilePicUrl || '/image/profile_placeholder.png') + ')';
+        userPic.removeAttribute('hidden');
+        //create database object
         var dbRefObj = firebase.database().ref(firebaseUser.displayName+"/graph");
         //retrive data from firebase
         dbRefObj.once('value').then(function(snapshot) {
@@ -27,6 +40,8 @@ firebase.auth().onAuthStateChanged(firebaseUser =>{
         });
 
       }else{
+        document.getElementById("display-user").style.display="none";
+        document.getElementById('user-pic').style.display="none";
         document.getElementById("logout").style.display = "none";
         document.getElementById("login").style.display = "block";
         // document.getElementById("jsmind_container").style.display = "none";
