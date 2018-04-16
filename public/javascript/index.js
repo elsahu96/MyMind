@@ -3,9 +3,14 @@
 function updataDatabase(){
     var user = firebase.auth().currentUser;
     var displayName = user.displayName;
+    // var email = user.email;
     var mind_data = _jm.get_data('node_array');
-    firebase.database().ref(displayName).child("graph").set(mind_data);
-        console.log("data updated!");   
+    
+    var ref = firebase.database().ref(displayName+"/graph");    
+    
+    ref.set(mind_data);
+    console.log("data updated!");   
+
 };
 function updataDatabaseBtn(){
     var user = firebase.auth().currentUser;
@@ -19,16 +24,19 @@ function updataDatabaseBtn(){
 firebase.auth().onAuthStateChanged(firebaseUser =>{
       if(firebaseUser){
         //user is logged in
+        var userName = firebaseUser.displayName;
+
+        if(userName==null){
+            window.location.href = "setProfile.html";
+        }
+        // user login as normal user
         
-        document.getElementById("login").style.display = "none";
-        document.getElementById("display-user").innerHTML=firebaseUser.displayName;
-        //get user's profile
-        var userPic = document.getElementById('user-pic');
-        var profilePicUrl = firebaseUser.photoURL;
-        userPic.style.backgroundImage = 'url(' + (profilePicUrl || '/image/profile_placeholder.png') + ')';
-        userPic.removeAttribute('hidden');
         //create database object
-        var dbRefObj = firebase.database().ref(firebaseUser.displayName+"/graph");
+        
+        document.getElementById("display-user").innerHTML="Hello, "+userName;
+        var dbRefObj = firebase.database().ref(userName+"/graph");
+        
+        
         //retrive data from firebase
         dbRefObj.once('value').then(function(snapshot) {
             console.log(snapshot.val());
@@ -37,15 +45,12 @@ firebase.auth().onAuthStateChanged(firebaseUser =>{
             dbRefObj.on('value', function(snapshot) {
                 _jm.show(snapshot.val());
             });
-        });
-
+        });    
+        
       }else{
         document.getElementById("display-user").style.display="none";
         document.getElementById('user-pic').style.display="none";
         document.getElementById("logout").style.display = "none";
-        document.getElementById("login").style.display = "block";
-        // document.getElementById("jsmind_container").style.display = "none";
-        // console.log("not logged in");
       }
 });
 

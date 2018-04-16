@@ -4,9 +4,9 @@ var options = {
         theme:'default',
         editable:true,
         shortcut:{
-           enable:true,        // 是否启用快捷键
+           enable:true,        // shortcut is enabled
            handles:{
-           },         // 命名的快捷键事件处理器
+           },         // shortcut handler
            mapping:{           // shortcut mapping
                addchild   : 9,    // <tab>
                addbrother : 13,    // <Enter>
@@ -89,7 +89,7 @@ function remove_node(){
     if(!selected_id){prompt_info('please select a node first.');return;}
 
     _jm.remove_node(selected_id);
-    window.alert("Are you sure you want to delete this node? ")
+    confirm("Are you sure you want to delete this node? (The central node can't be deleted.)");
     updataDatabase();
 }
 function change_text_font(font_size){

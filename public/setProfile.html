@@ -34,33 +34,32 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
     <script type="text/javascript">
   // sign up
-     function handleSignUp() {
-      var email = document.getElementById('email').value;
-      var password = document.getElementById('password').value;
-      // Sign in with email and pass.
-      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        alert("Error:"+errorMessage);   
-      });
+     function handleSubmit() {
+      var name = document.getElementById('displayname').value;
 
-
-      window.location.href = "setProfile.html";
-      // [END createwithemail]
-    }
-
-    function send_verification(){
+      //update user profile
       var user = firebase.auth().currentUser;
-      user.sendEmailVerification().then(function(){
-        window.alert("Verification sent!");
-      }).catch(function(){
-        //An error happened
-        window.alert("Error:"+error.message);
-      })
-    }
 
-    
+      if (user) {
+        // User is signed in.
+        user.updateProfile({
+          displayName: name,
+          
+        }).then(function() {
+          // Update successful.
+          window.location.href = "main.html";
+        }).catch(function(error) {
+          // An error happened.
+          window.alert(error);
+        });
+
+      } else {
+        // No user is signed in.
+      }
+    }
+    //get current user's profile
+
+   
 
     </script>
 
@@ -70,20 +69,18 @@
   <div class="container">
       <div class="top">
       </div>
-      <h2>Welcome to MyMind!<br><br>Register here. 
+      <h2>Welcome to MyMind!<br><br>Enter your group name to start!
       </h2>
 
       <div class="login-box animated fadeInUp">
-          <input type="text" placeholder="Group email/username" id="email">
-
-          <input type="password" placeholder="Enter password" id="password">
-          <input type="password" placeholder="Confirm password" id="password">
+          <input type="text" placeholder="Group name" id="displayname">
+          
           <br/>
-          <button type="submit" onclick="handleSignUp()">Finish</button>
-          <button type="submit" onclick="send_verification()">Send Verification</button>
+          <button type="submit" onclick="handleSubmit()">Finish</button>
+          
           <br/>
         
-          <a href="index.html"><p class="small">Have an account? Login here</p></a>
+          
         
       </div> 
     </div>

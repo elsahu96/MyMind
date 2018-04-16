@@ -7,7 +7,7 @@
   <title>Sign in to start building your mind map!</title>
 
   
-  <link type="text/css" rel="stylesheet" href="/login.css" />
+  <link type="text/css" rel="stylesheet" href="css/login.css" />
   <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
@@ -37,14 +37,14 @@
     <script type="text/javascript">
       // FirebaseUI config.
       var uiConfig = {
-        signInSuccessUrl: 'main.html',
+        signInSuccessUrl: '',
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
           // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
           // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
           // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-          // firebase.auth.EmailAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID,
           // firebase.auth.PhoneAuthProvider.PROVIDER_ID
         ],
         // Terms of service url.
@@ -57,7 +57,7 @@
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
 
-    function toggleSignIn(){
+    function toggleSignInAnonymously(){
       window.alert("You will not be able to save your work when you are signed in as an anonymous user.");
       firebase.auth().signInAnonymously().catch(function(error) {
         // Handle Errors here.
@@ -107,54 +107,48 @@
 
     }
     
-    // function toggleSignIn() {
-    //   if (firebase.auth().currentUser) {
-    //     // [START signout]
-    //     firebase.auth().signOut();
-    //     // [END signout]
-    //   } else {
-    //     var email = document.getElementById('email').value;
-    //     var password = document.getElementById('password').value;
-    //     if (email.length < 4) {
-    //       alert('Please enter the correct email address/username.');
-    //       return;
-    //     }
-    //     if (password.length < 4) {
-    //       alert('Please enter your password.');
-    //       return;
-    //     }
-    //     // Sign in with email and pass.
-    //     // [START authwithemail]
-    //     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-    //       // Handle Errors here.
-    //       var errorCode = error.code;
-    //       var errorMessage = error.message;
-    //       // [START_EXCLUDE]
-    //       if (errorCode === 'auth/wrong-password') {
-    //         alert('Wrong password.');
-    //       } else {
-    //         alert(errorMessage);
-    //       }
-    //       console.log(error);        
-    //       // [END_EXCLUDE]
-    //     });
-    //     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-    //       console.log(error);
-    //     });
-    //     // [END authwithemail]
-    //   }
-    // }
+    function toggleSignIn() {
+      
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        if (email.length < 4) {
+          alert('Please enter the correct email address/username.');
+          return;
+        }
+        if (password.length < 4) {
+          alert('Please enter your password.');
+          return;
+        }
+        // Sign in with email and pass.
+        // [START authwithemail]
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // [START_EXCLUDE]
+          if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+          } else {
+            alert(errorMessage);
+          }
+          console.log(error);        
+          // [END_EXCLUDE]
+        });
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+          console.log(error);
+        });
+        // [END authwithemail]
+      
+    }
     
     auth.onAuthStateChanged(firebaseUser =>{
       if(firebaseUser==null){
         console.log("You are not logged in yet");
         // console.log(firebaseUser);
       }else{
-
         console.log("Log in");
         window.location.href = "main.html";
         // window.setTimeout('window.open("main.html","newsite")',3000);
-        
       }
     })
 
@@ -186,33 +180,28 @@
     
     </script>
 
-<div id = "website-container">
 
 
   <div class="container">
-      <div class="top">
-    
-      </div>
+      
       <h2>Welcome to MyMind!<br><br>
         Enter your group user name and password to sign in. 
 
       </h2>
+
+      
+
       <div class="login-box animated fadeInUp">
-          <button type="submit" onclick="toggleSignIn()">Sign In Anonymously</button>
-        <br/>
+
         <div id="firebaseui-auth-container"></div>
-        <div style="float:top; ">
-          <a href="signup.html" float:left;dispaly:block><p class="small">Don't have an account? Register here.</p></a>
-        </div>
-        
-        <div style="float:top; ">
-        <a href="#" id="quickstart-password-reset" onclick="sendPasswordReset()"><p class="small">Forgot password?</p></a>
+        <button type="submit" onclick="toggleSignInAnonymously()">Sign In Anonymously</button>
+         
         </div>
       </div>      
     </div>
 
 
-</div>
+
   
 </body>
 
